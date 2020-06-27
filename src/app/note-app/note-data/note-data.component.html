@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="border col-12 mt-2 py-2 text-right">
+      <button class="btn btn-primary btn-sm mr-3" (click)="createTask()">Create</button>
+      <button class="btn btn-primary btn-sm mr-3" (click)="deleteTask()">Delete</button>
+      <input class="form-control-sm border" type="search" (input) = "searchValues($event.target.value)" placeholder="Search">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 border px-0 overflow-auto" style="max-height: 587px;">
+      <ul class="list-group">
+        <li class="list-inline-item mr-0 p-2" style="background-color: lightgoldenrodyellow;">
+          <p class="mb-0"><strong>{{noteVal}}</strong></p>
+          <small>{{date | date:"HH:mm"}}</small>
+          <hr class="my-0" style="border-top: 1px solid lightgoldenrodyellow;">
+        </li>
+        <li class="list-inline-item mr-0 p-2" *ngFor="let data of totalArray"  >
+          <p class="mb-0" (click)="editFun(data.notevalue)"   [innerHTML]="data.notevalue | highlightMatchCase: searchTerm"><strong>{{data.notevalue}}</strong></p>
+          <small >{{data.datenew | date:"HH:mm"}}-No additional task</small>
+          <hr class="my-0" style="border-top: 1px solid lightgoldenrodyellow;">
+        </li>
+      </ul>
+    </div>
+    <div class="border col-9 px-0 overflow-hidden" style="max-height: 587px;">
+      <form>
+        <textarea class="border form-control" [(ngModel)]='noteVal' [value]="noteVal" name='noteVal' rows="50"
+          cols="100">
+        </textarea>
+      </form>
+    </div>
+    {{notevalue}}
+  </div>
+</div>
