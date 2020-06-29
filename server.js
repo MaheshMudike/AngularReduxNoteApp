@@ -3,6 +3,7 @@ const path = require ('path')
 const app = express();
 app.use(express.static(__dirname+ '/automate-ang'));
 app.get('/*',function(req,res){
+    console.log(__dirnam)
     res.sendFile(path.join(__dirname+'/automate-ang/src/index.html'));
 });
 
