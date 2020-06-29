@@ -1,10 +1,11 @@
 const express = require('express');
 const path = require ('path')
 const app = express();
+console.log(__dirname)
 app.use(express.static(__dirname+ '/automate-ang'));
 app.get('/*',function(req,res){
-    console.log(__dirnam)
-    res.sendFile(path.join(__dirname+'/automate-ang/src/index.html'));
+    console.log(__dirname)
+    res.sendFile(path.join(__dirname+'/src/index.html'));
 });
 
 var server = app.listen(process.env.PORT || 8080, function () {
